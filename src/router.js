@@ -8,6 +8,7 @@ import FormLogin from './components/FormLogin'
 import CadastroClientes from './components/CadastroClientes'
 import FormClientes from './components/FormClientes'
 import CadastroUsuarios from './components/CadastroUsuarios'
+import FormUsuarios from './components/FormUsuarios'
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,7 @@ const routes = [
     {path: '/cadclientes', component: CadastroClientes },
     {path: '/formclientes', component: FormClientes },
     {path: '/cadusuarios', component: CadastroUsuarios },
+    {path: '/formusuarios', component: FormUsuarios },
 ]
 
 export default new VueRouter({
