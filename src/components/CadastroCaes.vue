@@ -2,7 +2,7 @@
   <div class="container">
     <h2>
       Pets Cadastrados
-      <router-link to="/formcaes" class="btn btn-success float-right">
+      <router-link to="/formcaes" class="btn btn-success float-right ml-3">
         <i class="fas fa-plus-circle"></i> Adicionar
       </router-link>
       <form class="form-inline float-right">
@@ -11,12 +11,25 @@
         <button class="btn btn-success" @click.prevent="listar">Todos</button>
       </form>
     </h2>
+
+    <!-- lista não ordenada para mensagem -->
+    <h4 v-if="pesquisa.length" class="text-danger">  
+      <b>Pet não encontrado:</b>
+      <ul>
+        <li v-for="(pesq, index) in pesquisa" class="text-danger small" :key="index">
+          {{ pesq }}
+        </li>
+      </ul>
+
+    </h4>
+
     <table class="table table-striped">
       <thead>
         <tr>
           <th>Nome</th>
           <th>Idade</th>
           <th>Raça</th>
+          <th>Destaque</th>
           <th>Foto</th>
           <th>Ações</th>
         </tr>
@@ -25,6 +38,7 @@
           <td>{{ cao.nome }}</td>
           <td>{{ cao.idade }}</td>
           <td>{{ cao.raca }}</td>
+          <td class="text-center text-danger font-weight-bold">{{ cao.destaque | destacaPet }}</td> 
           <td><img :src="cao.foto" alt="Foto do Cachorro" /></td>
           <td>
             <button
@@ -36,7 +50,7 @@
             </button>
             <button
               class="btn btn-warning btn-sm mx-1"
-              title="Alterar"
+              title="Alterar"       
               @click="editar(cao.id)"
             >
               <i class="far fa-edit"></i>
@@ -71,9 +85,10 @@ export default {
       },
       filtro:"",
       caes: [],
+      pesquisa:[],
     };
   },
-  //método o vue que ocorre assim que a página é renderizada
+  //método do vue que ocorre assim que a página é renderizada
   mounted() {
     // axios
     //   .get(this.$urlAPI + "/caes")
@@ -81,22 +96,44 @@ export default {
     this.listar()
   },
   methods:{
+
+    busca_vazia(){
+      this.pesquisa = []
+      if(this.caes.length != 0){
+          return true
+      }
+      if(this.caes.length == 0){
+        this.pesquisa.push("Pet não encontrado")
+      }
+      return false;
+      
+    },
+
+
     listar(){
       axios.get(this.$urlAPI + "/caes")
            .then((response) => (this.caes = response.data));
       this.filtro = ""
+      
     },
+
+    
   
-    // editar(id) {
-    //   axios
-    //     .get(this.$urlAPI + "/caes/" + id)
-    //     .then((response) => {
-    //       this.carro = response.data
-    //       this.$router.push({ path: "/formcarros", query: { altera: this.carro }})
-    //     });
+
+    //cria no back um rota (show) para buscar utilizado o id
+    //tras os dados para o atributo cao lança a pagina de cadastro já com estes dados
+    //passando como querry o objeto altera com os dados de caoo
+    editar(id) {
+      axios
+        .get(this.$urlAPI + "/caes/buscar_id/" + id)
+        .then((response) => {
+          this.cao = response.data
+          this.$router.push({ path: "/formcaes", query: { altera: this.cao }})
+        });
+    },
 
     destacar(id) {  //alterar rota 
-      axios.put(this.$urlAPI + "/caes/" + id).then((response) => {
+      axios.put(this.$urlAPI + "/caes/destacar/" + id).then((response) => {
         if (response.status == 200) {
           this.listar();
         }
@@ -120,14 +157,23 @@ export default {
         this.listar();     // mostra todos
       } else {
         axios
-          .get(this.$urlAPI + "/caes/buscar/" + this.filtro)
-          .then((response) => (this.carros = response.data));
+          .get(this.$urlAPI + "/caes/pesquisa/" + this.filtro)
+          .then((response) => (this.caes = response.data));
+
+          if(!this.busca_vazia()){
+              return
+          }
+          
+          // if(this.caes.length == 0){
+          //   this.busca_vazia();
+          //   console.log("Não há pet")
+          // }
       }
     },
 
   },
   filters:{
-    destacaCarro(value) {
+    destacaPet(value) {
       return value ? "x" : "";
     },
   }

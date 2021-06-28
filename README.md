@@ -37,3 +37,5 @@ npm i axios
 
 npm install vue-router
 	para o router.js
+
+npm i vue-google-charts

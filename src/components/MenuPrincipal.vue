@@ -20,11 +20,11 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-          Pesquisas
+          Serviços
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Veículos</a>
-          <a class="dropdown-item" href="#">Propostas</a>
+          <a class="dropdown-item" href="#">Banho </a>
+          <a class="dropdown-item" href="#">Banho e Tosa</a>
         </div>
       </li>
 
@@ -33,7 +33,7 @@
           Gráficos
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Veículos por Marcas</a>
+          <router-link class="dropdown-item" to="/graficocaes">Cães por Raça</router-link>
           <a class="dropdown-item" href="#">Veículos por Cores</a>
           <a class="dropdown-item" href="#">Cadastro de Veículos</a>
           <a class="dropdown-item" href="#">Veículos x Propostas</a>
