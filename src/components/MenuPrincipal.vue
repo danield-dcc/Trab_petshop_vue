@@ -23,7 +23,7 @@
           Serviços
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Banho </a>
+          <router-link class="dropdown-item" to="/cadbanhotosa">Banho </router-link>
           <a class="dropdown-item" href="#">Banho e Tosa</a>
         </div>
       </li>

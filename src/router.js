@@ -10,6 +10,8 @@ import FormClientes from './components/FormClientes'
 import CadastroUsuarios from './components/CadastroUsuarios'
 import FormUsuarios from './components/FormUsuarios'
 import GraficoCaesRaca from './components/GraficoCaesRaca'
+import CadastroBanhoTosa from './components/CadastroBanhoTosa'
+import FormBanhoTosa from './components/FormBanhoTosa'
 
 Vue.use(VueRouter)
 
@@ -23,6 +25,8 @@ const routes = [
     {path: '/cadusuarios', component: CadastroUsuarios },
     {path: '/formusuarios', component: FormUsuarios },
     {path: '/graficocaes', component: GraficoCaesRaca },
+    {path: '/cadbanhotosa', component: CadastroBanhoTosa },
+    {path: '/formbanhotosa', component: FormBanhoTosa },
 ]
 
 export default new VueRouter({

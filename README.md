@@ -39,3 +39,5 @@ npm install vue-router
 	para o router.js
 
 npm i vue-google-charts
+
+npm install vue-material --save

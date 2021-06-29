@@ -121,13 +121,14 @@ export default {
   
 
     //cria no back um rota (show) para buscar utilizado o id
-    //tras os dados para o atributo cao lança a pagina de cadastro já com estes dados
+    //traz os dados para o atributo cao lança a pagina de cadastro já com estes dados
     //passando como querry o objeto altera com os dados de caoo
     editar(id) {
       axios
         .get(this.$urlAPI + "/caes/buscar_id/" + id)
         .then((response) => {
           this.cao = response.data
+          console.log(this.cao)
           this.$router.push({ path: "/formcaes", query: { altera: this.cao }})
         });
     },
