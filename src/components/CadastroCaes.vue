@@ -90,9 +90,7 @@ export default {
   },
   //método do vue que ocorre assim que a página é renderizada
   mounted() {
-    // axios
-    //   .get(this.$urlAPI + "/caes")
-    //   .then((response) => (this.caes = response.data));
+  
     this.listar()
   },
   methods:{
@@ -128,7 +126,7 @@ export default {
         .get(this.$urlAPI + "/caes/buscar_id/" + id)
         .then((response) => {
           this.cao = response.data
-          console.log(this.cao)
+          //console.log(this.cao)
           this.$router.push({ path: "/formcaes", query: { altera: this.cao }})
         });
     },

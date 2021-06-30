@@ -6,29 +6,8 @@
       <router-link to="/formbanhotosa" class="btn btn-success float-right ml-3">
         <i class="fas fa-plus-circle"></i> Adicionar
       </router-link>
-      <!--
-      <form class="form-inline float-right">
-        <input
-          class="form-control form-control mr-1"
-          type="text"
-          v-model="filtro"
-          @keyup="pesquisar"
-          placeholder="Pesquisa"
-        />
-        <button class="btn btn-success" @click.prevent="listar">Todos</button>
-      </form> -->
     </h2>
 
-    <!-- lista não ordenada para mensagem -->
-    <!-- <h4 v-if="pesquisa.length" class="text-danger">  
-      <b>Pet não encontrado:</b>
-      <ul>
-        <li v-for="(pesq, index) in pesquisa" class="text-danger small" :key="index">
-          {{ pesq }}
-        </li>
-      </ul>
-
-    </h4> -->
 
     <div class="row">
       <ul v-for="agendamento in agendamentos" :key="agendamento.id">
@@ -52,14 +31,14 @@
             <a href="#" class="btn btn-primary">Excluir</a> -->
             <td>
             <button
-              class="btn btn-warning btn-sm mx-1"
+              class="btn btn-primary btn-sm mx-1"
               title="Alterar"
               @click="editar(agendamento.id)"
             >
               <i class="far fa-edit"></i>
             </button>
             <button
-              class="btn btn-danger btn-sm mx-1"
+              class="btn btn-primary btn-sm mx-1"
               title="Excluir"
               @click="excluir(agendamento.id, agendamento.cliente_id)"
             >
@@ -111,7 +90,7 @@ export default {
       }
     },
 
-    //TEM QUE MEXER NA ROTA PRA TRAZER PELO ID
+    
     editar(id) {
       axios
         .get(this.$urlAPI + "/banho_tosa/buscar_id/" + id)

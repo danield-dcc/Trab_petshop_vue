@@ -102,21 +102,6 @@
         </label>
       </div>
 
-      <!-- <div class="row">
-        <div class="col-sm-9">
-          <div class="form-group">
-            <label for="endereco">Endereço:</label>
-            <input
-              type="text"
-              id="endereco"
-              class="form-control"
-              v-model="clientes.endereco"
-              required
-            />
-          </div>
-        </div>
-      </div> -->
-
       <button type="submit" class="btn btn-success mt-2 px-4 mr-2">
         <i class="far fa-save"></i> Salvar
       </button>

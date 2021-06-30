@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark mb-3">
     <img src="petshop.jpg" alt="Pet" class="mx-3">
-    <router-link class="navbar-brand" to="/">Petshop </router-link>
+    <router-link class="navbar-brand" to="/">Petshop + Lov </router-link>
 
     <!-- Links -->
     <ul class="navbar-nav">
@@ -23,8 +23,8 @@
           Serviços
         </a>
         <div class="dropdown-menu">
-          <router-link class="dropdown-item" to="/cadbanhotosa">Banho </router-link>
-          <a class="dropdown-item" href="#">Banho e Tosa</a>
+          <router-link class="dropdown-item" to="/cadbanhotosa">Banho e Tosa</router-link>
+          <!-- <a class="dropdown-item" href="#">Banho e Tosa</a> -->
         </div>
       </li>
 
@@ -35,15 +35,15 @@
         <div class="dropdown-menu">
           <router-link class="dropdown-item" to="/graficocaes">Cães por Raça</router-link>
           <a class="dropdown-item" href="#">Veículos por Cores</a>
-          <a class="dropdown-item" href="#">Cadastro de Veículos</a>
+          <!-- <a class="dropdown-item" href="#">Cadastro de Veículos</a>
           <a class="dropdown-item" href="#">Veículos x Propostas</a>
-          <a class="dropdown-item" href="#">Propostas Mensais</a>
+          <a class="dropdown-item" href="#">Propostas Mensais</a> -->
         </div>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#">Utilitários</a>
-      </li>
+      </li> -->
     </ul>
 
     <ul class="navbar-nav ml-auto">
@@ -84,4 +84,12 @@ export default{
         width: 60px;
         height: 40px;
     }
+
+    .navbar {
+    background-color: coral;
+}
+
+.navbar-custom {
+    background-color: lightgreen;
+}
 </style>
